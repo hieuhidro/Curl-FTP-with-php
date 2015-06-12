@@ -18,6 +18,7 @@ php ftp_download.php -- [options]
 --pw      [value]      Password login ftp.  (default empty)	
 --ssl     [value]      Default false (true/false)		
 --fm      [value]      Default FTP_BINARY			
+--upload  <value>      Upload all file from src to dest. Default false
 --timeout [value]      Default 60				
 --sr      [value]      Folder download.     (required)		
 --dest    [value]      Folder save to.      (required)	
