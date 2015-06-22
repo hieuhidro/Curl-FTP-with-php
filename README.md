@@ -1,5 +1,5 @@
 # Curl-FTP-with-php
-Download file from ftp with php without timeout, file large, curl ftp download file, list file from ftp with curl, 
+Download, uplpad file to ftp with php without timeout, file large, curl ftp download file, upload file to ftp list file from ftp with curl, 
 
 <h2>With Magento project</h2>
 **Copy file and folder to project** 
