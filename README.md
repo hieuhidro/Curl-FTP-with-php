@@ -25,7 +25,8 @@ php ftp_download.php -- [options]
 help                   This help
 </pre>
 
-**With order project php** Use class **Mage_Dataflow_Model_Convert_Adapter_Extend_Curl**;
+<h2>With order project php</h2>
+Use class **Mage_Dataflow_Model_Convert_Adapter_Extend_Curl**;
 <pre>
 $connect = array(
                 'host' => $host,
