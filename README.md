@@ -11,18 +11,18 @@ goto shell and run cmd
 
 More option Usage:  
 <pre>
-php ftp_download.php -- [options]
---host    [value]      Ftp host connection. (required)		
---hp      [value]      Ftp Port connection. (Default 21)	
---user    [value]      User login.          (default anonymou)	
---pw      [value]      Password login ftp.  (default empty)	
---ssl     [value]      Default false (true/false)		
---fm      [value]      Default FTP_BINARY			
---upload  <value>      Upload all file from src to dest. Default false
---timeout [value]      Default 60				
---sr      [value]      Folder download.     (required)		
---dest    [value]      Folder save to.      (required)	
-help                   This help
+Usage:  php ftp_download.php -- [options]
+  --host    <value>      Ftp host (required)
+  --port    <value>      Ftp Port (Default 21)
+  --user    <value>      Ftp Username          (default anonymous)
+  --pwd     <value>      Ftp Password.  (default empty)
+  --ssl     <value>      Default false (true/false)
+  --fm      <value>      Default FTP_BINARY
+  --timeout <value>      Default 60
+  --upload  <value>      Upload all file from src to dest. Default false
+  --src     <value>      Download from folder.     (required)
+  --dest    <value>      Folder save to.      (required)
+  help                   This help
 </pre>
 
 <h2>With order project php</h2>
