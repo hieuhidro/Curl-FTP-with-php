@@ -10,7 +10,7 @@ goto shell and run cmd
 <br/><code> php -f ftp_download.php --host "ftp.yourhost.com" --user "ussername" --pw "password" --sr "/" --dest "/" </code>
 
 More option Usage:  
-<pre>
+```php
 Usage:  php ftp_download.php -- [options]
   --host    <value>      Ftp host (required)
   --port    <value>      Ftp Port (Default 21)
@@ -23,11 +23,11 @@ Usage:  php ftp_download.php -- [options]
   --src     <value>      Download from folder.     (required)
   --dest    <value>      Folder save to.      (required)
   help                   This help
-</pre>
+```
 
 <h2>With order project php</h2>
 Use class **Mage_Dataflow_Model_Convert_Adapter_Extend_Curl**;
-<pre>
+```php
 $connect = array(
                 'host' => $host,
                 'port' => $port,
@@ -56,5 +56,5 @@ $connect = array(
                     echo "Doesn't exists any file in folder";
                 }
             }
-</pre>
+```
 
