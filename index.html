@@ -38,16 +38,16 @@ goto shell and run cmd
 
 <pre>
 php ftp_download.php -- [options]
---host    [value]      Ftp host connection. (required)      
---hp      [value]      Ftp Port connection. (Default 21)    
---user    [value]      User login.          (default anonymou)  
---pw      [value]      Password login ftp.  (default empty) 
---ssl     [value]      Default false (true/false)       
---fm      [value]      Default FTP_BINARY           
---upload        Upload all file from src to dest. Default false
---timeout [value]      Default 60               
---sr      [value]      Folder download.     (required)      
---dest    [value]      Folder save to.      (required)  
+--host          Ftp host (required)
+  --port          Ftp Port (Default 21)
+  --user          Ftp Username          (default anonymous)
+  --pwd           Ftp Password.  (default empty)
+  --ssl           Default false (true/false)
+  --fm            Default FTP_BINARY
+  --timeout       Default 60
+  --upload        Upload all file from src to dest. Default false
+  --src           Download from folder.     (required)
+  --dest          Folder save to.      (required)
 help                   This help
 </pre>
 
