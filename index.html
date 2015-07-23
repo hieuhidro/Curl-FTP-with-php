@@ -36,53 +36,49 @@ goto shell and run cmd
 
 <p>More option Usage:  </p>
 
-<pre>
-php ftp_download.php -- [options]
---host          Ftp host (required)
-  --port          Ftp Port (Default 21)
-  --user          Ftp Username          (default anonymous)
-  --pwd           Ftp Password.  (default empty)
-  --ssl           Default false (true/false)
-  --fm            Default FTP_BINARY
-  --timeout       Default 60
-  --upload        Upload all file from src to dest. Default false
-  --src           Download from folder.     (required)
-  --dest          Folder save to.      (required)
-help                   This help
-</pre>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-c1">php</span> <span class="pl-c1">ftp_download</span><span class="pl-k">.</span><span class="pl-c1">php</span> <span class="pl-k">--</span> [<span class="pl-c1">options</span>]</span>
+<span class="pl-s1"><span class="pl-k">--</span><span class="pl-c1">host</span>          <span class="pl-c1">Ftp</span> host (<span class="pl-c1">required</span>)</span>
+<span class="pl-s1">  <span class="pl-k">--</span><span class="pl-c1">port</span>          <span class="pl-c1">Ftp</span> Port (<span class="pl-c1">Default</span> <span class="pl-c1">21</span>)</span>
+<span class="pl-s1">  <span class="pl-k">--</span><span class="pl-c1">user</span>          <span class="pl-c1">Ftp</span> Username          (<span class="pl-k">default</span> <span class="pl-c1">anonymous</span>)</span>
+<span class="pl-s1">  <span class="pl-k">--</span><span class="pl-c1">pwd</span>           <span class="pl-c1">Ftp</span> <span class="pl-c1">Password</span><span class="pl-k">.</span>  (<span class="pl-k">default</span> <span class="pl-c1">empty</span>)</span>
+<span class="pl-s1">  <span class="pl-k">--</span><span class="pl-c1">ssl</span>           <span class="pl-c1">Default</span> false (<span class="pl-c1">true</span><span class="pl-k">/</span><span class="pl-c1">false</span>)</span>
+<span class="pl-s1">  <span class="pl-k">--</span><span class="pl-c1">fm</span>            <span class="pl-c1">Default</span> <span class="pl-c1">FTP_BINARY</span></span>
+<span class="pl-s1">  <span class="pl-k">--</span><span class="pl-c1">timeout</span>       <span class="pl-c1">Default</span> <span class="pl-c1">60</span></span>
+<span class="pl-s1">  <span class="pl-k">--</span><span class="pl-c1">upload</span>        <span class="pl-c1">Upload</span> <span class="pl-c1">all</span> <span class="pl-c1">file</span> <span class="pl-c1">from</span> <span class="pl-c1">src</span> <span class="pl-c1">to</span> <span class="pl-c1">dest</span><span class="pl-k">.</span> <span class="pl-c1">Default</span> <span class="pl-c1">false</span></span>
+<span class="pl-s1">  <span class="pl-k">--</span><span class="pl-c1">src</span>           <span class="pl-c1">Download</span> <span class="pl-c1">from</span> <span class="pl-c1">folder</span><span class="pl-k">.</span>     (<span class="pl-c1">required</span>)</span>
+<span class="pl-s1">  <span class="pl-k">--</span><span class="pl-c1">dest</span>          <span class="pl-c1">Folder</span> <span class="pl-c1">save</span> <span class="pl-c1">to</span><span class="pl-k">.</span>      (<span class="pl-c1">required</span>)</span>
+<span class="pl-s1"><span class="pl-c1">help</span>                   <span class="pl-c1">This</span> <span class="pl-c1">help</span></span></pre></div>
 
 <p><strong>With order project php</strong> Use class <strong>Mage_Dataflow_Model_Convert_Adapter_Extend_Curl</strong>;</p>
 
-<pre>
-$connect = array(
-                'host' =&gt; $host,
-                'port' =&gt; $port,
-                'user' =&gt; $user,      
-                'password' =&gt; $password,  
-                'ssl' =&gt; $ssl,        // default false 
-                'file_mode' =&gt; $filemode, // default FTP_BINARY
-                'timeout' =&gt; $timeout,
-            );
-            if($sourceFolder &amp;&amp; $destFolder){
-        $CurlFtp = new Mage_Dataflow_Model_Convert_Adapter_Extend_Curl($connect);
-                $lsDir = $CurlFtp-&gt;getListDir($sourceFolder);
-                if(!is_dir($destFolder)){
-                    mkdir($dest,'0777',true);
-                }
-                if(isset($lsDir['file'])){
-                    $i = 0;
-                    foreach($lsDir['file'] as $key =&gt; $file){
-                        if($i == 4) break;
-                        echo "Downloading: $file \r\n";
-                        if($this-&gt;_getFtp()-&gt;curlGetFile($sourceFolder.DS.$file,$destFolder.'/'.$file, false)){
-                            echo "Download successful File: $file \r\n";
-                        }
-                    }
-                }else{
-                    echo "Doesn't exists any file in folder";
-                }
-            }
-</pre>
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$connect</span> <span class="pl-k">=</span> <span class="pl-c1">array</span>(</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>host<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$host</span>,</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>port<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$port</span>,</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>user<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$user</span>,      </span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$password</span>,  </span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>ssl<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$ssl</span>,        <span class="pl-c">// default false </span></span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>file_mode<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$filemode</span>, <span class="pl-c">// default FTP_BINARY</span></span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>timeout<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$timeout</span>,</span>
+<span class="pl-s1">            );</span>
+<span class="pl-s1">            <span class="pl-k">if</span>(<span class="pl-smi">$sourceFolder</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$destFolder</span>){</span>
+<span class="pl-s1">        <span class="pl-smi">$CurlFtp</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Mage_Dataflow_Model_Convert_Adapter_Extend_Curl</span>(<span class="pl-smi">$connect</span>);</span>
+<span class="pl-s1">                <span class="pl-smi">$lsDir</span> <span class="pl-k">=</span> <span class="pl-smi">$CurlFtp</span><span class="pl-k">-&gt;</span>getListDir(<span class="pl-smi">$sourceFolder</span>);</span>
+<span class="pl-s1">                <span class="pl-k">if</span>(<span class="pl-k">!</span><span class="pl-c1">is_dir</span>(<span class="pl-smi">$destFolder</span>)){</span>
+<span class="pl-s1">                    <span class="pl-c1">mkdir</span>(<span class="pl-smi">$dest</span>,<span class="pl-s"><span class="pl-pds">'</span>0777<span class="pl-pds">'</span></span>,<span class="pl-c1">true</span>);</span>
+<span class="pl-s1">                }</span>
+<span class="pl-s1">                <span class="pl-k">if</span>(<span class="pl-c1">isset</span>(<span class="pl-smi">$lsDir</span>[<span class="pl-s"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>])){</span>
+<span class="pl-s1">                    <span class="pl-smi">$i</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;</span>
+<span class="pl-s1">                    <span class="pl-k">foreach</span>(<span class="pl-smi">$lsDir</span>[<span class="pl-s"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>] <span class="pl-k">as</span> <span class="pl-smi">$key</span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$file</span>){</span>
+<span class="pl-s1">                        <span class="pl-k">if</span>(<span class="pl-smi">$i</span> <span class="pl-k">==</span> <span class="pl-c1">4</span>) <span class="pl-k">break</span>;</span>
+<span class="pl-s1">                        <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>Downloading: <span class="pl-smi">$file</span> <span class="pl-cce">\r\n</span><span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1">                        <span class="pl-k">if</span>(<span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>_getFtp()<span class="pl-k">-&gt;</span>curlGetFile(<span class="pl-smi">$sourceFolder</span><span class="pl-k">.</span><span class="pl-c1">DS</span><span class="pl-k">.</span><span class="pl-smi">$file</span>,<span class="pl-smi">$destFolder</span><span class="pl-k">.</span><span class="pl-s"><span class="pl-pds">'</span>/<span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-smi">$file</span>, <span class="pl-c1">false</span>)){</span>
+<span class="pl-s1">                            <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>Download successful File: <span class="pl-smi">$file</span> <span class="pl-cce">\r\n</span><span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1">                        }</span>
+<span class="pl-s1">                    }</span>
+<span class="pl-s1">                }<span class="pl-k">else</span>{</span>
+<span class="pl-s1">                    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>Doesn't exists any file in folder<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1">                }</span>
+<span class="pl-s1">            }</span></pre></div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/thien321091/Curl-FTP-with-php">Curl-ftp-with-php</a> is maintained by <a href="https://github.com/thien321091">thien321091</a>.</span>
