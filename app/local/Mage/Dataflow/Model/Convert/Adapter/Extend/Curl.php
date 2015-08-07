@@ -3,7 +3,7 @@ ini_set('max_execution_time', 0);
 
 class Mage_Dataflow_Model_Convert_Adapter_Extend_Curl
 {
-    const EMPTY_HOST = "Can't find host to connect, Params Host required";
+    const EMPTY_HOST = "Can't find host to connect";
     const FTP_URL = 'ftp://';
     protected $_conn;
     protected $_curl;
@@ -31,17 +31,15 @@ class Mage_Dataflow_Model_Convert_Adapter_Extend_Curl
         }
 
         $this->_conn['user'] = isset($args['user']) ? $args['user'] : 'anonymous';
-
         $this->_conn['password'] = isset($args['password']) ? $args['password'] : '';
-
         $this->_conn['port'] = isset($args['port']) && $args['port'] ? $args['port'] : 21;
-
         $this->_conn['file_mode'] = isset($args['file_mode']) && $args['file_mode'] ? $args['file_mode'] : FTP_BINARY;
-
         $this->_conn['timeout'] = isset($args['timeout']) && $args['timeout'] ? $args['timeout'] : 60;
-
     }
 
+    /**
+     * @return mixed
+     */
     protected function setDefault()
     {
         if ($this->_curl) {
@@ -53,6 +51,9 @@ class Mage_Dataflow_Model_Convert_Adapter_Extend_Curl
         return $this->_curl;
     }
 
+    /**
+     * @return resource
+     */
     protected function getCurl()
     {
         if (!$this->_curl) {
